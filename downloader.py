@@ -18,7 +18,7 @@ def main():
 
     headers = {
     'x-rapidapi-host': "unogs-unogs-v1.p.rapidapi.com",
-    'x-rapidapi-key': "a1296b58a5msh0d1514001b88f9ep1afbcajsncfb2e503e33b"
+    'x-rapidapi-key': "YOUR-KEY-HERE"
     }
 
     data = requests.request("GET", url, headers=headers, params=querystring)
