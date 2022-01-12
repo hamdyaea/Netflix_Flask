@@ -14,7 +14,7 @@ current_date = current_date.strftime("%d-%m-%Y")
 
 def reloader():
     username = "hamdyaea"
-    api_token = "46e780ca68e2c38ff7548a9e76e907b51013d02d"
+    api_token = "XXX" # api token
     domain_name = "hamdyaea.pythonanywhere.com"
 
     response = requests.post('https://www.pythonanywhere.com/api/v0/user/{username}/webapps/{domain_name}/reload/'.format(username=username, domain_name=domain_name),headers={'Authorization': 'Token {token}'.format(token=api_token)})
