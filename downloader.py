@@ -14,7 +14,7 @@ current_date = current_date.strftime("%d-%m-%Y")
 
 def reload():
     username = "hamdyaea"
-    token = "46e780ca68e2c38ff7548a9e76e907b51013d02d"
+    token = "XXXXX" #pythonandywhere api token
 
     response = requests.get(
         "https://www.pythonanywhere.com/api/v0/user/{username}/reload/".format(
