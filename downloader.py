@@ -44,12 +44,7 @@ def main():
     totalcount = ListNewJson["COUNT"]
     movielist = []
     for i in total:
-        topaste = (
-            str("    Date : ")
-            + str(i["unogsdate"])
-            + str("     Title : ")
-            + str(i["title"])
-        )
+        topaste = (str("    Date : ")+ str(i["unogsdate"])+ str("     Title : ")+ str(i["title"])+str("     Rating : ")+str(i["rating"])+str("     Type : ")+str(i["type"])+str("     Released : ")+str(i["released"])+str("     Runtime : ")+str(i["runtime"]))
         movielist.append(topaste)
 
     datef = open("/home/hamdyaea/mysite/update.txt", "w")
