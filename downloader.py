@@ -14,14 +14,14 @@ current_date = current_date.strftime("%d-%m-%Y")
 
 def reloader():
     username = "hamdyaea"
-    token = "XXXX" # Pythonanywhere api token
+    api_token = "46e780ca68e2c38ff7548a9e76e907b51013d02d"
+    domain_name = "hamdyaea.pythonanywhere.com"
 
-    response = requests.get(
-        "https://www.pythonanywhere.com/api/v0/user/{username}/reload/".format(
-            username=username
-        ),
-        headers={"Authorization": "Token {token}".format(token=token)},
-    )
+    response = requests.post('https://www.pythonanywhere.com/api/v0/user/{username}/webapps/{domain_name}/reload/'.format(username=username, domain_name=domain_name),headers={'Authorization': 'Token {token}'.format(token=api_token)})
+    if response.status_code == 200:
+        print('reloaded OK')
+    else:
+        print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
 
 
 def main():
