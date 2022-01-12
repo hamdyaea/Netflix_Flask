@@ -2,7 +2,7 @@
 # Developer : Hamdy Abou El Anein
 # hamdy.aea@protonmail.com
 
-from flask import Flask, render_template
+from flask import Flask, render_template, escape
 
 app = Flask(__name__)
 
@@ -10,8 +10,7 @@ app = Flask(__name__)
 def main():
     with open('/home/hamdyaea/mysite/movies.txt') as f:
         movielist = f.readlines()
-   
-    
+        movielist.reverse()  
     with open("/home/hamdyaea/mysite/update.txt") as f:
         update_date = f.readlines()
     dateup = update_date[0]

@@ -12,9 +12,9 @@ current_date = datetime.date.today()
 current_date = current_date.strftime("%d-%m-%Y")
 
 
-def reload():
+def reloader():
     username = "hamdyaea"
-    token = "XXXXX" #pythonandywhere api token
+    token = "XXXX" # Pythonanywhere api token
 
     response = requests.get(
         "https://www.pythonanywhere.com/api/v0/user/{username}/reload/".format(
@@ -42,9 +42,11 @@ def main():
     ListNewJson = json.loads(data)
     total = ListNewJson["ITEMS"]
     totalcount = ListNewJson["COUNT"]
+    
     movielist = []
+    
     for i in total:
-        topaste = (str("    Date : ")+ str(i["unogsdate"])+ str("     Title : ")+ str(i["title"])+str("     Rating : ")+str(i["rating"])+str("     Type : ")+str(i["type"])+str("     Released : ")+str(i["released"])+str("     Runtime : ")+str(i["runtime"]))
+        topaste = (str("<strong>    Date : </strong>")+ str(i["unogsdate"])+ str("<strong>     Title : </strong>")+ str(i["title"])+str("<strong>     Rating : </strong>")+str(i["rating"])+str("<strong>     Type : </strong>")+str(i["type"])+str("<strong>     Released : </strong>")+str(i["released"])+str("<strong>     Runtime : </strong>")+str(i["runtime"])+str("<p>&nbsp;</p><img src=")+str(i["image"])+str(">"))
         movielist.append(topaste)
 
     datef = open("/home/hamdyaea/mysite/update.txt", "w")
@@ -67,4 +69,4 @@ def main():
 
 
 main()
-reload()
+reloader()
