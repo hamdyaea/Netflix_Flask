@@ -14,15 +14,15 @@ current_date = current_date.strftime("%d-%m-%Y")
 
 def reloader():
     username = "hamdyaea"
-    api_token = "XXXXX"
-    domain_name = "hamdyaea.pythonanywhere.com"
+    token = "46e780ca68e2c38ff7548a9e76e907b51013d02d"
 
-    response = requests.post('https://www.pythonanywhere.com/api/v0/user/{username}/webapps/{domain_name}/reload/'.format(username=username, domain_name=domain_name),headers={'Authorization': 'Token {token}'.format(token=api_token)})
-    if response.status_code == 200:
-        print('reloaded OK')
-    else:
-        print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
-
+    response = requests.get(
+        "https://www.pythonanywhere.com/api/v0/user/{username}/reload/".format(
+            username=username
+        ),
+        headers={"Authorization": "Token {token}".format(token=token)},
+    )
+    print(response)
 
 def main():
 
@@ -32,7 +32,7 @@ def main():
 
     headers = {
         "x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com",
-        "x-rapidapi-key": "XXX",
+        "x-rapidapi-key": "a1296b58a5msh0d1514001b88f9ep1afbcajsncfb2e503e33b",
     }
 
     data = requests.request("GET", url, headers=headers, params=querystring)
@@ -42,12 +42,13 @@ def main():
     ListNewJson = json.loads(data)
     total = ListNewJson["ITEMS"]
     totalcount = ListNewJson["COUNT"]
-
+    
     movielist = []
-    movielist.append("<br><br>Developer : Hamdy Abou El Anein  -  hamdy.aea@protonmail.com<br>")
+    
     for i in total:
-        topaste = (str("<strong>    Date : </strong>")+ str(i["unogsdate"])+ str("<strong>     Title : </strong>")+ str(i["title"])+str("<strong>     Rating : </strong>")+str(i["rating"])+str("<strong>     Type : </strong>")+str(i["type"])+str("<strong>     Released : </strong>")+str(i["released"])+str("<strong>     Runtime : </strong>")+str(i["runtime"])+str("<br><img src=")+str(i["image"])+str("><br>"))
+        topaste = (str("<strong>    Date : </strong>")+ str(i["unogsdate"])+ str("<strong>     Title : </strong>")+ str(i["title"])+str("<strong>     Rating : </strong>")+str(i["rating"])+str("<strong>     Type : </strong>")+str(i["type"])+str("<strong>     Released : </strong>")+str(i["released"])+str("<strong>     Runtime : </strong>")+str(i["runtime"])+str("<p>&nbsp;</p><img src=")+str(i["image"])+str(">"))
         movielist.append(topaste)
+
     datef = open("/home/hamdyaea/mysite/update.txt", "w")
     datef.write(str(current_date))
     datef.close()
@@ -67,5 +68,5 @@ def main():
         movief.close()
 
 
-main()
+#main()
 reloader()

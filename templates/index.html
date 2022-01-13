@@ -4,72 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Netflix News Switzerland</title>
-    <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
-    <link rel="stylesheet" href="slick/slick.css">
-    <link rel="stylesheet" href="slick/slick-theme.css">
-    <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/tooplate-infinite-loop.css" />
-<!--
-Tooplate 2117 Infinite Loop
-https://www.tooplate.com/view/2117-infinite-loop
--->
+    <title>Last 7 news on Netflix for Switzerland</title>
+    <link rel="stylesheet" href="https://hamdyaea.pythonanywhere.com/static/fontawesome-5.5/css/all.min.css" />
+    <link rel="stylesheet" href="https://hamdyaea.pythonanywhere.com/static/slick/slick.css">
+    <link rel="stylesheet" href="https://hamdyaea.pythonanywhere.com/static/slick/slick-theme.css">
+    <link rel="stylesheet" href="https://hamdyaea.pythonanywhere.com/static/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="https://hamdyaea.pythonanywhere.com/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://hamdyaea.pythonanywhere.com/static/css/tooplate-infinite-loop.css" />
 
   </head>
-  <body>    
+  <body>
     <!-- Hero section -->
     <section id="infinite" class="text-white tm-font-big tm-parallax">
       <!-- Navigation -->
-      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
-        <div class="container">   
+      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">
+        <div class="container">
           <div class="tm-next">
-              <a href="#infinite" class="navbar-brand">Infinite Loop</a>
-          </div>             
-            
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars navbar-toggler-icon"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          </div>        
-        </div>
+
+   </div>
+   </div>
       </nav>
-      
+
       <div class="text-center tm-hero-text-container">
         <div class="tm-hero-text-container-inner">
-            <h2 class="tm-hero-title">News on Netflix for Switzerland</h2>
+            <h2 class="tm-hero-title">News on Netflix Switzerland for the last 7 days</h2>
             <p class="tm-hero-subtitle">
-              News on Netflix for the last 7 days for Switzerland
-              <br>
-              <br>
-              <p><span style="color: white;">Last update : {{  dateup  }}</span></p>
-<p>&nbsp;</p>
-<p><span style="color: white;">Number of news of Netflix in Switerland : {{  totalcount  }}</span></p>
-<p>&nbsp;</p>
-<p><span style="color: white;">List of news of the last 7 days in Netflix for Switzerland</span></p>
-<p>&nbsp;</p>
-{% autoescape false %}
-{% for i in  movielist %}
-    <p><span style="color: white;">{{  i  }}</span></p>
-{% endfor %}
-{% endautoescape %}
+              Developer : Hamdy Abou El Anein    -    hamdy.aea@protonmail.cm
+              <br>Source code : https://github.com/hamdyaea/Netflix_Flask
             </p>
-        </div>        
+        </div>
       </div>
 
       <div class="tm-next tm-intro-next">
-      </div>      
+        <a href="#whatwedo" class="text-center tm-down-arrow-link">
+          <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
+        </a>
+      </div>
     </section>
 
+    <section id="whatwedo" class="tm-section-pad-top">
 
-    </section>
-    
-    <script src="js/jquery-1.9.1.min.js"></script>     
-    <script src="slick/slick.min.js"></script>
-    <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="js/easing.min.js"></script>
-    <script src="js/jquery.singlePageNav.min.js"></script>     
-    <script src="js/bootstrap.min.js"></script> 
+      <div class="container">
+
+            <div class="row tm-content-box"><!-- first row -->
+                <div class="col-lg-12 col-xl-12">
+                    <div class="tm-intro-text-container">
+                        <p class="mb-4 tm-intro-text">
+                          Last update : {{  dateup  }}<br><br>Number of news of Netflix in Switerland : {{  totalcount  }}<br><br>List of news of the last 7 days in Netflix for Switzerland<br><br>{% autoescape false %}
+{% for i in  movielist %}
+{{  i  }}
+{% endfor %}
+{% endautoescape %}
+
+</p>
+                    </div>
+                </div>
+
+
+    <script src="https://hamdyaea.pythonanywhere.com/static/js/jquery-1.9.1.min.js"></script>
+    <script src="https://hamdyaea.pythonanywhere.com/static/slick/slick.min.js"></script>
+    <script src="https://hamdyaea.pythonanywhere.com/static/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="https://hamdyaea.pythonanywhere.com/static/js/easing.min.js"></script>
+    <script src="https://hamdyaea.pythonanywhere.com/static/js/jquery.singlePageNav.min.js"></script>
+    <script src="https://hamdyaea.pythonanywhere.com/static/js/bootstrap.min.js"></script>
     <script>
 
       function getOffSet(){
@@ -78,7 +75,7 @@ https://www.tooplate.com/view/2117-infinite-loop
 
         if(windowHeight > 500) {
           _offset = 400;
-        } 
+        }
         if(windowHeight > 680) {
           _offset = 300
         }
@@ -97,7 +94,7 @@ https://www.tooplate.com/view/2117-infinite-loop
       }
 
       // Parallax function
-      // Adapted based on https://codepen.io/roborich/pen/wpAsm        
+      // Adapted based on https://codepen.io/roborich/pen/wpAsm
       var background_image_parallax = function($object, multiplier, forceSet){
         multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
         multiplier = 1 - multiplier;
@@ -107,7 +104,7 @@ https://www.tooplate.com/view/2117-infinite-loop
         if(forceSet) {
           setParallaxPosition($doc, multiplier, $object);
         } else {
-          $(window).scroll(function(){          
+          $(window).scroll(function(){
             setParallaxPosition($doc, multiplier, $object);
           });
         }
@@ -118,12 +115,12 @@ https://www.tooplate.com/view/2117-infinite-loop
         multiplier = 1 - multiplier;
         var $doc = $(document);
         $object.css({"background-attachment" : "fixed"});
-        
+
         $(window).scroll(function(){
           if($(window).width() > 768) {
             var firstTop = $object.offset().top,
                 pos = $(window).scrollTop(),
-                yPos = Math.round((multiplier * (firstTop - pos)) - 186);              
+                yPos = Math.round((multiplier * (firstTop - pos)) - 186);
 
             var bg_css = 'center ' + yPos + 'px';
 
@@ -133,38 +130,38 @@ https://www.tooplate.com/view/2117-infinite-loop
           }
         });
       };
-      
+
       $(function(){
         // Hero Section - Background Parallax
         background_image_parallax($(".tm-parallax"), 0.30, false);
-        background_image_parallax_2($("#contact"), 0.80);   
-        background_image_parallax_2($("#testimonials"), 0.80);   
-        
+        background_image_parallax_2($("#contact"), 0.80);
+        background_image_parallax_2($("#testimonials"), 0.80);
+
         // Handle window resize
         window.addEventListener('resize', function(){
           background_image_parallax($(".tm-parallax"), 0.30, true);
         }, true);
 
         // Detect window scroll and update navbar
-        $(window).scroll(function(e){          
+        $(window).scroll(function(e){
           if($(document).scrollTop() > 120) {
             $('.tm-navbar').addClass("scroll");
           } else {
             $('.tm-navbar').removeClass("scroll");
           }
         });
-        
-        // Close mobile menu after click 
+
+        // Close mobile menu after click
         $('#tmNav a').on('click', function(){
-          $('.navbar-collapse').removeClass('show'); 
+          $('.navbar-collapse').removeClass('show');
         })
 
         // Scroll to corresponding section with animation
         $('#tmNav').singlePageNav({
           'easing': 'easeInOutExpo',
           'speed': 600
-        });        
-        
+        });
+
         // Add smooth scrolling to all links
         // https://www.w3schools.com/howto/howto_css_smooth_scroll.asp
         $("a").on('click', function(event) {
@@ -206,12 +203,12 @@ https://www.tooplate.com/view/2117-infinite-loop
               settings: {
                 slidesToShow: 2
               }
-            }, 
+            },
             {
               breakpoint: 480,
               settings: {
                   slidesToShow: 1
-              }                 
+              }
             }
           ]
         });
