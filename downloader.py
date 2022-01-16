@@ -6,10 +6,29 @@ import requests
 import json
 import datetime
 import sys
+import logging
+import socket
+from logging.handlers import SysLogHandler
 
 
 current_date = datetime.date.today()
 current_date = current_date.strftime("%d-%m-%Y")
+
+# Prepare logs to Papertrail
+syslog = SysLogHandler(address=('logs3.papertrailapp.com', 21249))
+format = '%(asctime)s NetflixDownloader: %(message)s'
+formatter = logging.Formatter(format, datefmt='%b %d %H:%M:%S')
+syslog.setFormatter(formatter)
+
+logger = logging.getLogger()
+logger.addHandler(syslog)
+logger.setLevel(logging.INFO)
+
+def my_handler(type, value, tb):
+  logger.exception('Uncaught exception: {0}'.format(str(value)))
+
+# Install exception handler
+sys.excepthook = my_handler
 
 
 def reloader():
@@ -19,9 +38,9 @@ def reloader():
 
     response = requests.post('https://www.pythonanywhere.com/api/v0/user/{username}/webapps/{domain_name}/reload/'.format(username=username, domain_name=domain_name),headers={'Authorization': 'Token {token}'.format(token=api_token)})
     if response.status_code == 200:
-        print('reloaded OK')
+        logger.info('reloaded OK')
     else:
-        print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
+        logger.info('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
 
 
 def main():
@@ -65,7 +84,7 @@ def main():
         movief.write(str(i))
         movief.write("\n")
         movief.close()
-
+    logger.info("Main function is finish everything downloaded...")
 
 main()
 reloader()
