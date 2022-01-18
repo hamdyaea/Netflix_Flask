@@ -14,7 +14,7 @@ current_date = current_date.strftime("%d-%m-%Y")
 
 def reloader():
     username = "hamdyaea"
-    api_token = "XXXX"
+    api_token = "XXXXXX"
     domain_name = "hamdyaea.pythonanywhere.com"
 
     response = requests.post('https://www.pythonanywhere.com/api/v0/user/{username}/webapps/{domain_name}/reload/'.format(username=username, domain_name=domain_name),headers={'Authorization': 'Token {token}'.format(token=api_token)})
@@ -43,10 +43,12 @@ def main():
     total = ListNewJson["ITEMS"]
     totalcount = ListNewJson["COUNT"]
 
+
     movielist = []
     movielist.append("<br><br>Developer : Hamdy Abou El Anein  -  hamdy.aea@protonmail.com<br>")
+    #print(total)
     for i in total:
-        topaste = (str("<strong>    Date : </strong>")+ str(i["unogsdate"])+ str("<strong>     Title : </strong>")+ str(i["title"])+str("<strong>     Rating : </strong>")+str(i["rating"])+str("<strong>     Type : </strong>")+str(i["type"])+str("<strong>     Released : </strong>")+str(i["released"])+str("<strong>     Runtime : </strong>")+str(i["runtime"])+str("<br><img src=")+str(i["image"])+str("><br>"))
+        topaste = (str("<strong>     Title : </strong>")+ str(i["title"])+str("<strong>     Rating : </strong>")+str(i["rating"])+str("<strong>     Type : </strong>")+str(i["type"])+str("<strong>     Released : </strong>")+str(i["released"])+str("<strong>     Runtime : </strong>")+str(i["runtime"])+str("<br>")+str(i["synopsis"])+str("<br><img src=")+str(i["image"])+str(">")+str("<br><hr><br>"))
         movielist.append(topaste)
     datef = open("/home/hamdyaea/mysite/update.txt", "w")
     datef.write(str(current_date))
